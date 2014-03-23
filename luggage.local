@@ -1,0 +1,25 @@
+l_Library_SJU: l_Library
+	@sudo mkdir -p ${WORK_D}/Library/SJU
+	@sudo chown root:wheel ${WORK_D}/Library/SJU
+	@sudo chmod 755 ${WORK_D}/Library/SJU
+
+l_Library_SJU_scriptRunner: l_Library_SJU
+	@sudo mkdir -p ${WORK_D}/Library/SJU/scriptRunner
+	@sudo chown root:wheel ${WORK_D}/Library/SJU/scriptRunner
+	@sudo chmod 755 ${WORK_D}/Library/SJU/scriptRunner
+
+l_Library_SJU_scriptRunner_once: l_Library_SJU_scriptRunner
+	@sudo mkdir -p ${WORK_D}/Library/SJU/scriptRunner/once
+	@sudo chown root:wheel ${WORK_D}/Library/SJU/scriptRunner/once
+	@sudo chmod 755 ${WORK_D}/Library/SJU/scriptRunner/once
+
+l_Library_SJU_scriptRunner_every: l_Library_SJU_scriptRunner
+	@sudo mkdir -p ${WORK_D}/Library/SJU/scriptRunner/every
+	@sudo chown root:wheel ${WORK_D}/Library/SJU/scriptRunner/every
+	@sudo chmod 755 ${WORK_D}/Library/SJU/scriptRunner/every
+
+pack-Library-SJU-scriptRunner-once-%: % l_Library_SJU_scriptRunner_once
+	@sudo ${INSTALL} -m 755 -g wheel -o root "${<}" ${WORK_D}/Library/SJU/scriptRunner/once
+
+pack-Library-SJU-scriptRunner-every-%: % l_Library_SJU_scriptRunner_every
+	@sudo ${INSTALL} -m 755 -g wheel -o root "${<}" ${WORK_D}/Library/SJU/scriptRunner/every
