@@ -18,8 +18,16 @@ l_Library_SJU_scriptRunner_every: l_Library_SJU_scriptRunner
 	@sudo chown root:wheel ${WORK_D}/Library/SJU/scriptRunner/every
 	@sudo chmod 755 ${WORK_D}/Library/SJU/scriptRunner/every
 
+l_Library_SJU_scripts: l_Library
+	@sudo mkdir -p ${WORK_D}/Library/SJU/scripts
+	@sudo chown root:wheel ${WORK_D}/Library/SJU/scripts
+	@sudo chmod 755 ${WORK_D}/Library/SJU/scripts
+
 pack-Library-SJU-scriptRunner-once-%: % l_Library_SJU_scriptRunner_once
 	@sudo ${INSTALL} -m 755 -g wheel -o root "${<}" ${WORK_D}/Library/SJU/scriptRunner/once
 
 pack-Library-SJU-scriptRunner-every-%: % l_Library_SJU_scriptRunner_every
 	@sudo ${INSTALL} -m 755 -g wheel -o root "${<}" ${WORK_D}/Library/SJU/scriptRunner/every
+
+pack-Library-SJU-scripts-%: % l_Library_SJU_scripts
+	@sudo ${INSTALL} -m 755 -g wheel -o root "${<}" ${WORK_D}/Library/SJU/scripts
