@@ -3,6 +3,11 @@ l_Library_SJU: l_Library
 	@sudo chown root:wheel ${WORK_D}/Library/SJU
 	@sudo chmod 755 ${WORK_D}/Library/SJU
 
+l_usr_local_outset: l_usr_local
+	@sudo mkdir -p ${WORK_D}/usr/local/outset/{firstboot-packages,firstboot-scripts,everyboot-scripts,login-every,login-once}
+	@sudo chown -R root:wheel ${WORK_D}/usr/local/outset
+	@sudo chmod -R 755 ${WORK_D}/usr/local/outset
+
 l_Library_SJU_scriptRunner: l_Library_SJU
 	@sudo mkdir -p ${WORK_D}/Library/SJU/scriptRunner
 	@sudo chown root:wheel ${WORK_D}/Library/SJU/scriptRunner
@@ -31,3 +36,18 @@ pack-Library-SJU-scriptRunner-every-%: % l_Library_SJU_scriptRunner_every
 
 pack-Library-SJU-scripts-%: % l_Library_SJU_scripts
 	@sudo ${INSTALL} -m 755 -g wheel -o root "${<}" ${WORK_D}/Library/SJU/scripts
+
+pack-usr-local-outset-firstboot-packages-%: % l_usr_local_outset
+	@sudo ${INSTALL} -m 755 -g wheel -o root "${<}" ${WORK_D}/usr/local/outset/firstboot-packages
+
+pack-usr-local-outset-firstboot-scripts-%: % l_usr_local_outset
+	@sudo ${INSTALL} -m 755 -g wheel -o root "${<}" ${WORK_D}/usr/local/outset/firstboot-scripts
+
+pack-usr-local-outset-everyboot-scripts-%: % l_usr_local_outset
+	@sudo ${INSTALL} -m 755 -g wheel -o root "${<}" ${WORK_D}/usr/local/outset/everyboot-scripts
+
+pack-usr-local-outset-login-every-%: % l_usr_local_outset
+	@sudo ${INSTALL} -m 755 -g wheel -o root "${<}" ${WORK_D}/usr/local/outset/login-every
+
+pack-usr-local-outset-login-once-%: % l_usr_local_outset
+	@sudo ${INSTALL} -m 755 -g wheel -o root "${<}" ${WORK_D}/usr/local/outset/login-once
