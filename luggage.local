@@ -2,7 +2,7 @@
 
 l_Library_SJU: l_Library
 	@sudo mkdir -p ${WORK_D}/Library/SJU
-	@sudo chown root:wheel ${WORK_D}/Library/SJU
+	@sudo chown root:admin ${WORK_D}/Library/SJU
 	@sudo chmod 755 ${WORK_D}/Library/SJU
 
 # outset
