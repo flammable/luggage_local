@@ -5,6 +5,9 @@ l_Library_SJU: l_Library
 	@sudo chown root:admin ${WORK_D}/Library/SJU
 	@sudo chmod 755 ${WORK_D}/Library/SJU
 
+pack-Library-SJU-%: % l_Library_SJU
+	@sudo ${INSTALL} -m 755 -g admin -o root "${<}" ${WORK_D}/Library/SJU
+
 # outset
 
 l_usr_local_outset: l_usr_local
