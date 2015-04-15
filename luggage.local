@@ -29,3 +29,13 @@ pack-usr-local-outset-login-every-%: % l_usr_local_outset
 
 pack-usr-local-outset-login-once-%: % l_usr_local_outset
 	@sudo ${INSTALL} -m 755 -g wheel -o root "${<}" ${WORK_D}/usr/local/outset/login-once
+
+# custom Munki conditionals
+
+l_usr_local_munki_conditions: l_usr_local
+	@sudo mkdir -p ${WORK_D}/usr/local/munki/conditions
+	@sudo chown -R root:wheel ${WORK_D}/usr/local/munki/conditions
+	@sudo chmod -R 755 ${WORK_D}/usr/local/munki/conditions
+
+pack-usr-local-munki-conditions-%: % l_usr_local_munki_conditions
+	@sudo ${INSTALL} -m 755 -g wheel -o root "${<}" ${WORK_D}/usr/local/munki/conditions
