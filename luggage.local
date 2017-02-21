@@ -30,6 +30,12 @@ pack-usr-local-outset-login-once-%: % l_usr_local_outset
 pack-usr-local-outset-on-demand-%: % l_usr_local_outset
 	@sudo ${INSTALL} -m 755 -g wheel -o root "${<}" ${WORK_D}/usr/local/outset/on-demand
 
+pack-usr-local-outset-login-privileged-once-%: % l_usr_local_outset
+	@sudo ${INSTALL} -m 755 -g wheel -o root "${<}" ${WORK_D}/usr/local/outset/login-privileged-once
+
+pack-usr-local-outset-login-privileged-every-%: % l_usr_local_outset
+	@sudo ${INSTALL} -m 755 -g wheel -o root "${<}" ${WORK_D}/usr/local/outset/login-privileged-every
+
 # custom Munki conditionals
 
 l_usr_local_munki_conditions: l_usr_local
