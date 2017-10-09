@@ -8,6 +8,16 @@ l_Library_SJU: l_Library
 pack-Library-SJU-%: % l_Library_SJU
 	@sudo ${INSTALL} -m 755 -g admin -o root "${<}" ${WORK_D}/Library/SJU
 
+# Management folder for storing items
+
+l_Library_Management: l_Library
+	@sudo mkdir -p ${WORK_D}/Library/Management
+	@sudo chown root:admin ${WORK_D}/Library/Management
+	@sudo chmod 755 ${WORK_D}/Library/Management
+
+pack-Library-Management-%: % l_Library_Management
+	@sudo ${INSTALL} -m 755 -g admin -o root "${<}" ${WORK_D}/Library/Management
+
 # outset
 
 l_usr_local_outset: l_usr_local
