@@ -21,7 +21,7 @@ pack-Library-Management-%: % l_Library_Management
 # outset
 
 l_usr_local_outset: l_usr_local
-	@sudo mkdir -p ${WORK_D}/usr/local/outset/{boot-once,boot-every,login-every,login-once,on-demand}
+	@sudo mkdir -p ${WORK_D}/usr/local/outset/{boot-once,boot-every,login-every,login-once,on-demand,login-privileged-once,login-privileged-every}
 	@sudo chown -R root:wheel ${WORK_D}/usr/local/outset
 	@sudo chmod -R 755 ${WORK_D}/usr/local/outset
 
